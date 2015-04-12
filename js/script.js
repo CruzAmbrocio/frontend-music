@@ -5,7 +5,7 @@ jQuery(document).ready(function($) {
   success : function(parsed_json) {
   var hola = parsed_json['tracks']['track']['0']['name'];
   var haha = parsed_json['tracks']['track']
-  alert("Current temperature in "+hola);
+  console.log(hola);
   $('.hola').append( "<p>"+hola+"  </p>");
   console.log(haha);
   }

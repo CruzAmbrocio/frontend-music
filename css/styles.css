@@ -1,25 +1,51 @@
-body{
-background-color: #fff;
+*{
+    border:solid;
 }
-.logo {
-    margin-top: 18%;
-    width:30px;
-    height: 30px;
+
+body{
+    background-color: #fff;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+.margin{
+    margin-top: 1%;
+}
+
+.imgbig{
+    height: 100%;
+    width: 100%;
+}
+
+.titlePlay{
+    font-size: 40px;
+    margin-left: 20%;
+}
+
+.span1{
+    font-size: 30px;
+    color: #87ceeb;
+    font-family: arial;
+}
+
+.span2{
+    font-size: 30px;
+    color: #cc0000;
+    font-family: arial;
+}
+
+.img2 {
     display: inline-block;
 }
 
 .filters{
-    font-size: 30px;
+    font-size: 150%;
     font-family: 'Source Sans Pro', sans-serif;
     margin-top: 3%;
     text-align: center;
+    cursor: pointer;
+    border-bottom-style: solid; border-bottom-width: 2px;
 }
-.generalTitle{
-    margin-left: 20%;
-    font-size: 50px;
-    font-family:'Source Sans Pro', sans-serif;
-}
-.bar{
-    background: gray;
-    height: 10%;
+
+.iconfil{
+    font-size: 200%;
+    text-align: center;
 }
