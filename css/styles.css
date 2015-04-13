@@ -22,17 +22,22 @@ body{
     font-size: 40px;
     margin-left: 20%;
 }
-
+.subtitlePlay{
+    font-size: 20px;
+    margin-left: 17%;
+}
 .span1{
     font-size: 30px;
     color: #87ceeb;
     font-family: arial;
+    display: inline-block;
 }
 
 .span2{
     font-size: 30px;
     color: #cc0000;
     font-family: arial;
+    display: inline-block;
 }
 
 .img2 {
@@ -40,7 +45,7 @@ body{
 }
 
 .filters{
-    font-size: 150%;
+    font-size: 100%;
     font-family: 'Source Sans Pro', sans-serif;
     margin-top: 3%;
     text-align: center;
@@ -50,6 +55,21 @@ body{
 }
 .selecfiltr{
     border-bottom-color: black;
+}
+.oculto{
+    display: none;
+}
+.titleFilters{
+    font-size: 40px;
+}
+.topf{
+    font-size: 100%;
+    font-family: 'Source Sans Pro', sans-serif;
+    margin-top: 3%;
+    text-align: center;
+    cursor: pointer;
+    border-bottom-style: solid; border-bottom-width: 2px;
+    border-bottom-color: #ececec;
 }
 .hover_button{
     color: #a7a7a7;
