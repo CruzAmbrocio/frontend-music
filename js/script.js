@@ -18,7 +18,7 @@ jQuery(document).ready(function($) {
         try {varImage.push(parsed_json["tracks"]["track"][i]["image"][2]["#text"])}
         catch(err){varImage.push("images/undefined.jpg")}
             console.log(playCounts);
-            console.log(varImage);
+            console.log(varImage[i]);
 
           $('.songs').append(
         "<div class='col-md-8 col-md-offset-1'>"+
@@ -31,13 +31,13 @@ jQuery(document).ready(function($) {
             "</div>"+
             "<div class='col-md-8'>"+
                 "<div class='infoSong'>"+
-                    "<p class='name'> "+varName[i]+"</p>"+
+                    "<p class='name'> "+varName[i]+"</classp>"+
                     "<p class='artist'>"+varArtist[i]+"</p>"+
                     "<p class='duration'>"+varDuration[i]+"  Seg."+"</p>"+
                 "</div>"+
             "</div>"+
         "</div>"
-);
+            );
 
     }
   }
@@ -50,6 +50,10 @@ jQuery(document).ready(function($) {
     },
       function() {
         $(this).removeClass("hover_button");
+    });
+
+    $('.filters').click(function() {
+        $(this).addClass(".selecfiltr");
     });
 
 
