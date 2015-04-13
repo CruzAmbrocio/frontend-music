@@ -1,10 +1,13 @@
-*{
+{
     border:solid;
 }
 
 body{
     background-color: #fff;
     font-family: 'Source Sans Pro', sans-serif;
+}
+.hrs{
+    background-color: red; 
 }
 .margin{
     margin-top: 1%;
@@ -43,9 +46,28 @@ body{
     text-align: center;
     cursor: pointer;
     border-bottom-style: solid; border-bottom-width: 2px;
+    border-bottom-color: #ececec;
+}
+.selecfiltr{
+    border-bottom-color: black;
+}
+.hover_button{
+    color: #a7a7a7;
 }
 
 .iconfil{
     font-size: 200%;
     text-align: center;
+}
+
+.hola{
+    text-align: center;
+}
+.noSong{
+    text-align: right;
+    font-size: 50px;
+}
+.songs{
+    background: #fbfbfb;
+    border-radius: 5px;
 }
