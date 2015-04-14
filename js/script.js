@@ -11,41 +11,15 @@ jQuery(document).ready(function($) {
   url : "http://ws.audioscrobbler.com/2.0/?method=chart.gettoptracks&api_key=16d8b076f9808ebbd4b7908e74fe1154&format=json",
   dataType : "json",
   success : function(parsed_json) {
+    var ListTop = parsed_json['tracks']['track'];
+        ListTop.sort(function(a, b){return b-a});
 
-    for (var i = 0; i <= 50; i++) {
-        playCounts.push(parsed_json["tracks"]["track"][i]["playcount"])
-        varDuration.push(parsed_json["tracks"]["track"][i]["duration"])
-        varName.push(parsed_json["tracks"]["track"][i]["name"])
-        varArtist.push(parsed_json['tracks']['track'][i]['artist']['name'])
-        try {varImage.push(parsed_json["tracks"]["track"][i]["image"][2]["#text"])}
-        catch(err){varImage.push("images/undefined.jpg")}
-            console.log(playCounts);
-            console.log(varImage[i]);
 
-          $('.songs').append(
-        "<div class='col-md-8 col-md-offset-1'>"+
-            "<hr/>"+
-            "<div class='col-md-2'>"+
-                "<p class='noSong'>"+(i+1)+"</p>"+
-            "</div>"+
-            "<div class='col-md-2'>"+
-                "<div class='images'>"+"<img src=\""+varImage[i]+"\" class='imgbig'>"+"</div>"+
-            "</div>"+
-            "<div class='col-md-8'>"+
-                "<div class='infoSong'>"+
-                    "<p class='name'>"+"Name  : "+varName[i]+"</classp>"+
-                    "<p class='artist'>"+"Artist name  : "+varArtist[i]+"</p>"+
-                    "<p class='duration'>"+"Duration  : "+varDuration[i]+"  Seg."+"</p>"+
-                    "<p class='playCounts'>"+"Play counts  : "+playCounts[i]+"</p>"+
-                "</div>"+
-            "</div>"+
-        "</div>"
-            );
     }
 
-  }
   });
-});
+  });
+
 
 /*
 public class Prueba {
@@ -79,19 +53,6 @@ public class Prueba {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
  $(".bottons").hover(
       function() {
         $(this).addClass("hover_button");
@@ -101,12 +62,48 @@ public class Prueba {
     });
 
  $("#Top").click(
-      function() {
+      function(ListTop) {
         $("#Top").addClass("selecfiltr");
         $("#time").removeClass("selecfiltr");
         $("#alpha").removeClass("selecfiltr");
         $(".oculto").removeClass("selecfiltr");
         $("#counts").removeClass("selecfiltr");
+
+    for (var i = 0; i <= 50; i++) {
+        playCounts.push(ListTop["tracks"]["track"][i]["playcount"])
+        varDuration.push(ListTop["tracks"]["track"][i]["duration"])
+        varName.push(ListTop["tracks"]["track"][i]["name"])
+        varArtist.push(ListTop['tracks']['track'][i]['artist']['name'])
+        try {varImage.push(ListTop["tracks"]["track"][i]["image"][2]["#text"])}
+        catch(err){varImage.push("images/undefined.jpg")}
+
+            console.log(playCounts[i]);
+            console.log(varImage[i]);
+
+        for(s=0; s<playCounts[i].length; s++){
+            console.log(playCounts[s]);
+            }
+
+          $('.songs').append(
+        "<div class='col-md-8 col-md-offset-1'>"+
+            "<hr/>"+
+            "<div class='col-md-2'>"+
+                "<p class='noSong'>"+(i+1)+"</p>"+
+            "</div>"+
+            "<div class='col-md-2'>"+
+                "<div class='images'>"+"<img src=\""+varImage[i]+"\" class='imgbig'>"+"</div>"+
+            "</div>"+
+            "<div class='col-md-8'>"+
+                "<div class='infoSong'>"+
+                    "<p class='name'>"+"Name  : "+varName[i]+"</classp>"+
+                    "<p class='artist'>"+"Artist name  : "+varArtist[i]+"</p>"+
+                    "<p class='duration'>"+"Duration  : "+varDuration[i]+"  Seg."+"</p>"+
+                    "<p class='playCounts'>"+"Play counts  : "+playCounts[i]+"</p>"+
+                "</div>"+
+            "</div>"+
+        "</div>"
+            );
+}
     });
 
 
