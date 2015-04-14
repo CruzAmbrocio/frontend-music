@@ -5,39 +5,26 @@ var varName = [];
 var varDuration = [];
 var varArtist = [];
 var varImage = [];
-var contnum ={(i+1)};
-var contimage =[varImage[i]];
-var contname =[varName[i]];
-var contartist=[varArtist[i]];
-var contduration=[varDuration[i]];
-var contplay=[playorder[i]];
 
-function songs () {
-      $('.songs').append(
-    "<div class='col-md-8 col-md-offset-1'>"+
-        "<hr/>"+
-        "<div class='col-md-2'>"+
-            "<p class='noSong'>"+contnum+"</p>"+
-        "</div>"+
-        "<div class='col-md-2'>"+
-            "<div class='images'>"+"<img src=\""+contimage+"\" class='imgbig'>"+"</div>"+
-        "</div>"+
-        "<div class='col-md-8'>"+
-            "<div class='infoSong'>"+
-                "<p class='name'>"+"Name  : "+contname+"</classp>"+
-                "<p class='artist'>"+"Artist name  : "+contartist+"</p>"+
-                "<p class='duration'>"+"Duration  : "+contduration+"  Seg."+"</p>"+
-                "<p class='playCounts'>"+"Play counts  : "+contplay+"</p>"+
-            "</div>"+
-        "</div>"+
-    "</div>"
-      );
-}
+ $(".bottons").hover(
+      function() {
+        $(this).addClass("hover_button");
+    },
+      function() {
+        $(this).removeClass("hover_button");
+    });
+
+function orderplay(first, second){
+first = first/60
+second = second/60
+if (first<second) {return 1}else{return 0};
+};
+
 jQuery(document).ready(function($) {
   $.ajax({
   url : "http://ws.audioscrobbler.com/2.0/?method=chart.gettoptracks&api_key=16d8b076f9808ebbd4b7908e74fe1154&format=json",
   dataType : "jsonp",
-  success : function(parsed_json) {
+  success : function(parsed_json,variables) {
     for (var i = 0; i <= 50; i++) {
         playCounts.push(parsed_json["tracks"]["track"][i]["playcount"])
         playorder.push(parsed_json["tracks"]["track"][i]["playcount"])
@@ -49,7 +36,7 @@ jQuery(document).ready(function($) {
             console.log(playCounts[i]);
             console.log(varImage[i]);
       $('.songs').append(
-    "<div class='col-md-8 col-md-offset-1'>"+
+    "<div class='col-md-8 col-md-offset-1 ord'>"+
         "<hr/>"+
         "<div class='col-md-2'>"+
             "<p class='noSong'>"+(i+1)+"</p>"+
@@ -72,31 +59,66 @@ jQuery(document).ready(function($) {
   });
 });
 
-
-
-
-function order(a, b){
-a = a/60
-b = b/60
-if (a<b) {return 1}else{return 0};
-};
-
  $("#counts").click(
-      function() {
-            $(".songs").empty();
+      function(event) {
+event.preventDefault();
+$(".songs").slideDown();
+ $(".ord").slideUp();
         $("#Top").removeClass("selecfiltr");
         $("#counts").addClass("selecfiltr");
         $("#time").removeClass("selecfiltr");
         $("#alpha").removeClass("selecfiltr");
         $(".oculto").removeClass("selecfiltr");
         $("#top").removeClass("selecfiltr");
-        playCounts.sort(order);
-        for (var x = 0; x <50; x++) {
-            for (var i = 0; i <50; i++) {
 
-        if (playCounts[x] === playorder[i]) {
-            var play = "playorder[i]"
-            songs(play);
+
+      function(event) {
+        $(".oculto").addClass("selecfiltr");
+        $("#alpha").addClass("selecfiltr");
+        $("#counts").removeClass("selecfiltr");
+        $("#time").removeClass("selecfiltr");
+        $("#Top").removeClass("selecfiltr");
+        $("#alpha").click(function(event){
+        event.preventDefault();
+        $(".oculto").show("fast");
+        $(".muestra").hide("fast");
+        });
+        $(".oculto").click(function(event){
+        event.preventDefault();
+        $(".muestra").show(100);
+        $(".oculto").hide(100);
+        $(".oculto").addClass("selecfiltr");
+        $("#alpha").addClass("selecfiltr");
+        $("#counts").removeClass("selecfiltr");
+        $("#time").removeClass("selecfiltr");
+        $("#Top").removeClass("selecfiltr");
+        });
+
+
+        playCounts.sort(orderplay);
+        for (var s = 0; s <50; s++) {
+            for (var i = 0; i <50; i++) {
+        if (playCounts[s] === playorder[i]) {
+            console.log(playCounts)
+     $('.songs').append(
+    "<div class='col-md-8 col-md-offset-1 ord'>"+
+        "<hr/>"+
+        "<div class='col-md-2'>"+
+            "<p class='noSong'>"+(i+1)+"</p>"+
+        "</div>"+
+        "<div class='col-md-2'>"+
+            "<div class='images'>"+"<img src=\""+varImage[i]+"\" class='imgbig'>"+"</div>"+
+        "</div>"+
+        "<div class='col-md-8'>"+
+            "<div class='infoSong'>"+
+                "<p class='name'>"+"Name  : "+varName[i]+"</classp>"+
+                "<p class='artist'>"+"Artist name  : "+varArtist[i]+"</p>"+
+                "<p class='duration'>"+"Duration  : "+varDuration[i]+"  Seg."+"</p>"+
+                "<p class='playCounts'>"+"Play counts  : "+playorder[i]+"</p>"+
+            "</div>"+
+        "</div>"+
+    "</div>"
+      );
         };
             };
         };
@@ -136,13 +158,6 @@ public class Prueba {
 
 
 /*
- $(".bottons").hover(
-      function() {
-        $(this).addClass("hover_button");
-    },
-      function() {
-        $(this).removeClass("hover_button");
-    });
 
  $("#Top").click(
       function(ListTop) {
