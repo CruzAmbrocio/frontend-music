@@ -6,9 +6,6 @@ body{
     background-color: #fff;
     font-family: 'Source Sans Pro', sans-serif;
 }
-.hrs{
-    background-color: red; 
-}
 .margin{
     margin-top: 1%;
 }
@@ -28,14 +25,14 @@ body{
 }
 .span1{
     font-size: 30px;
-    color: #87ceeb;
+    color: #78C3D5;
     font-family: arial;
     display: inline-block;
 }
 
 .span2{
     font-size: 30px;
-    color: #cc0000;
+    color: #C9392F;
     font-family: arial;
     display: inline-block;
 }
@@ -55,6 +52,12 @@ body{
 }
 .selecfiltr{
     border-bottom-color: black;
+}
+.up{
+    display: none; 
+}
+.timer2{
+    display: none;
 }
 .oculto{
     display: none;
@@ -80,9 +83,7 @@ body{
     text-align: center;
 }
 
-.hola{
-    text-align: center;
-}
+
 .noSong{
     text-align: right;
     font-size: 50px;
