@@ -1,15 +1,11 @@
 // Javascript Code.
 var playCounts = [];
 var playorder =[];
-
 var varName = [];
 var namOrder =[];
-
 var varDuration = [];
 var durationOrder=[];
-
 var varArtist = [];
-
 var varImage = [];
 
  $(".bottons").hover(
@@ -58,8 +54,6 @@ jQuery(document).ready(function($) {
         varArtist.push(parsed_json['tracks']['track'][i]['artist']['name'])
         try {varImage.push(parsed_json["tracks"]["track"][i]["image"][2]["#text"])}
         catch(err){varImage.push("images/undefined.jpg")}
-            console.log(playCounts[i]);
-            console.log(varImage[i]);
       $('.songs').append(
     "<div class='col-md-8 col-md-offset-1 ord'>"+
         "<hr/>"+
@@ -67,7 +61,7 @@ jQuery(document).ready(function($) {
             "<p class='noSong'>"+(i+1)+"</p>"+
         "</div>"+
         "<div class='col-md-2'>"+
-            "<div class='images'>"+"<img src=\""+varImage[i]+"\" class='imgbig'>"+"</div>"+
+            "<div class='images'>"+"<img src=\""+varImage[i] +"\" class='imgbig'>"+"</div>"+
         "</div>"+
         "<div class='col-md-8'>"+
             "<div class='infoSong'>"+
@@ -80,6 +74,9 @@ jQuery(document).ready(function($) {
     "</div>"
       );
     }
+            console.log(playCounts[i]);
+
+            console.log(varImage[i]);
     }
   });
 });
@@ -88,15 +85,13 @@ jQuery(document).ready(function($) {
       function(event) {event.preventDefault();
 $(".songs").slideDown();
  $(".ord").slideUp();
-        $(".up").show("fast");
-        $(".down").hide("fast");
         $("#Top").removeClass("selecfiltr");
         $("#time").removeClass("selecfiltr");
         $("#alpha").removeClass("selecfiltr");
         $(".oculto").removeClass("selecfiltr");
         $("#counts").addClass("selecfiltr");
         $(".up").addClass("selecfiltr");
-        $("#counts2").addClass("selecfiltr");
+        $("#counts2").removeClass("selecfiltr");
         $("#time2").removeClass("selecfiltr");
         playCounts.sort(orderPlay);
         for (var s = 0; s <50; s++) {
@@ -131,8 +126,6 @@ $(".songs").slideDown();
 $("#counts2").click(function(event){event.preventDefault();
 $(".songs").slideDown();
  $(".ord").slideUp();
-    $(".down").show(100);
-    $(".up").hide(100);
     $("#Top").removeClass("selecfiltr");
     $("#time").removeClass("selecfiltr");
     $("#alpha").removeClass("selecfiltr");
@@ -174,11 +167,9 @@ $(".songs").slideDown();
  $("#time").click(function(event) {event.preventDefault();
 $(".songs").slideDown();
  $(".ord").slideUp();
-$(".timer2").show("fast");
-$(".timer1").hide("fast");
         $("#Top").removeClass("selecfiltr");
         $("#time").addClass("selecfiltr");
-        $("#time2").addClass("selecfiltr");
+        $("#time2").removeClass("selecfiltr");
         $("#counts").removeClass("selecfiltr");
         $("#alpha").removeClass("selecfiltr");
         $(".oculto").removeClass("selecfiltr");
@@ -221,10 +212,8 @@ $("#time2").click(function(event){
     event.preventDefault();
 $(".songs").slideDown();
 $(".ord").slideUp();
-$(".timer1").show(100);
-$(".timer2").hide(100);
     $("#Top").removeClass("selecfiltr");
-    $("#time").addClass("selecfiltr");
+    $("#time").removeClass("selecfiltr");
     $("#time2").addClass("selecfiltr");
     $("#counts").removeClass("selecfiltr");
     $("#alpha").removeClass("selecfiltr");
@@ -270,9 +259,7 @@ $(".timer2").hide(100);
       function(event) {
 $(".songs").slideDown();
 $(".ord").slideUp();
-        $(".oculto").show("fast");
-        $(".muestra").hide("fast");
-        $(".oculto").addClass("selecfiltr");
+        $(".oculto").removeClass("selecfiltr");
         $("#alpha").addClass("selecfiltr");
         $("#counts").removeClass("selecfiltr");
         $("#time").removeClass("selecfiltr");
@@ -314,10 +301,8 @@ $("#zeta").click(function(event){
     event.preventDefault();
 $(".songs").slideDown();
 $(".ord").slideUp();
-    $(".muestra").show(100);
-    $(".oculto").hide(100);
     $(".oculto").addClass("selecfiltr");
-    $("#alpha").addClass("selecfiltr");
+    $("#alpha").removeClass("selecfiltr");
     $("#counts").removeClass("selecfiltr");
     $("#time").removeClass("selecfiltr");
     $("#Top").removeClass("selecfiltr");
@@ -357,8 +342,8 @@ $(".ord").slideUp();
  $("#Top").click(
       function(event) {
     event.preventDefault();
-$(".songs").empty();
-
+$(".songs").slideDown();
+$(".ord").slideUp();
         $("#Top").addClass("selecfiltr");
         $("#time").removeClass("selecfiltr");
         $("#alpha").removeClass("selecfiltr");
@@ -366,18 +351,7 @@ $(".songs").empty();
         $("#counts").removeClass("selecfiltr");
         $("#time2").removeClass("selecfiltr");
         $("#counts2").removeClass("selecfiltr");
-    for (var i = 0; i <= 50; i++) {
-        playCounts.push(parsed_json["tracks"]["track"][i]["playcount"])
-        playorder.push(parsed_json["tracks"]["track"][i]["playcount"])
-        varDuration.push(parsed_json["tracks"]["track"][i]["duration"])
-        durationOrder.push(parsed_json["tracks"]["track"][i]["duration"])
-        varName.push(parsed_json["tracks"]["track"][i]["name"])
-        namOrder.push(parsed_json["tracks"]["track"][i]["name"])
-        varArtist.push(parsed_json['tracks']['track'][i]['artist']['name'])
-        try {varImage.push(parsed_json["tracks"]["track"][i]["image"][2]["#text"])}
-        catch(err){varImage.push("images/undefined.jpg")}
-            console.log(playCounts[i]);
-            console.log(varImage[i]);
+    for (var i = 0; i <50; i++) {
       $('.songs').append(
     "<div class='col-md-8 col-md-offset-1 ord'>"+
         "<hr/>"+

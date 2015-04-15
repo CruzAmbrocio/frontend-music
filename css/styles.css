@@ -10,9 +10,14 @@ body{
     margin-top: 1%;
 }
 
+.logfilters{
+    display: inline-block;
+    text-align: center;
+}
 .imgbig{
-    height: 100%;
-    width: 100%;
+        max-width: 70%;
+        text-align: center;
+        max-height: 70%;
 }
 
 .titlePlay{
@@ -39,6 +44,8 @@ body{
 
 .img2 {
     display: inline-block;
+    max-width: 100%;
+    max-height: 100%;
 }
 
 .filters{
@@ -50,18 +57,20 @@ body{
     border-bottom-style: solid; border-bottom-width: 2px;
     border-bottom-color: #ececec;
 }
+.filters2{
+    font-size: 25px;
+    font-family: 'Source Sans Pro', sans-serif;
+    margin-top: 3%;
+    text-align: center;
+    margin-left: 15%;
+    cursor: pointer;
+    border-bottom-style: solid; border-bottom-width: 2px;
+    border-bottom-color: #ececec;
+}
 .selecfiltr{
     border-bottom-color: black;
 }
-.up{
-    display: none; 
-}
-.timer2{
-    display: none;
-}
-.oculto{
-    display: none;
-}
+
 .titleFilters{
     font-size: 40px;
 }
