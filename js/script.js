@@ -52,6 +52,7 @@ jQuery(document).ready(function($) {
         varName.push(parsed_json["tracks"]["track"][i]["name"])
         namOrder.push(parsed_json["tracks"]["track"][i]["name"])
         varArtist.push(parsed_json['tracks']['track'][i]['artist']['name'])
+        varurlImage.push(parsed_json['tracks']['track'][i][' '])
         try {varImage.push(parsed_json["tracks"]["track"][i]["image"][2]["#text"])}
         catch(err){varImage.push("images/undefined.jpg")}
       $('.songs').append(
