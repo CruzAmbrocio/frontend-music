@@ -7,6 +7,7 @@ var varDuration = [];
 var durationOrder=[];
 var varArtist = [];
 var varImage = [];
+var varurlImage=[];
 
  $(".bottons").hover(
       function() {
@@ -52,7 +53,8 @@ jQuery(document).ready(function($) {
         varName.push(parsed_json["tracks"]["track"][i]["name"])
         namOrder.push(parsed_json["tracks"]["track"][i]["name"])
         varArtist.push(parsed_json['tracks']['track'][i]['artist']['name'])
-        varurlImage.push(parsed_json['tracks']['track'][i][' '])
+        varurlImage.push(parsed_json['tracks']['track'][i]['image'])
+        console.log('Esta es la imagen'+varurlImage)
         try {varImage.push(parsed_json["tracks"]["track"][i]["image"][2]["#text"])}
         catch(err){varImage.push("images/undefined.jpg")}
       $('.songs').append(
@@ -62,13 +64,13 @@ jQuery(document).ready(function($) {
             "<p class='noSong'>"+(i+1)+"</p>"+
         "</div>"+
         "<div class='col-md-2'>"+
-            "<div class='images'>"+"<img src=\""+varImage[i] +"\" class='imgbig'>"+"</div>"+
+            "<div class='images'>"+"<img src=\""+varImage[i] +"\" class='imgbig'width= 100px>"+"</div>"+
         "</div>"+
         "<div class='col-md-8'>"+
             "<div class='infoSong'>"+
                 "<p class='name'>"+"Name  : "+varName[i]+"</classp>"+
                 "<p class='artist'>"+"Artist name  : "+varArtist[i]+"</p>"+
-                "<p class='duration'>"+"Duration  : "+varDuration[i]+"  Seg."+"</p>"+
+                "<p class='duration'>"+"Duration  : "+varDuration[i]/60+"  Seg."+"</p>"+
                 "<p class='playCounts'>"+"Play counts  : "+playorder[i]+"</p>"+
             "</div>"+
         "</div>"+
@@ -76,7 +78,6 @@ jQuery(document).ready(function($) {
       );
     }
             console.log(playCounts[i]);
-
             console.log(varImage[i]);
     }
   });
@@ -106,13 +107,13 @@ $(".songs").slideDown();
             "<p class='noSong'>"+(i+1)+"</p>"+
         "</div>"+
         "<div class='col-md-2'>"+
-            "<div class='images'>"+"<img src=\""+varImage[i]+"\" class='imgbig'>"+"</div>"+
+            "<div class='images'>"+"<img src=\""+varImage[i]+"\" class='imgbig'width= 100px>"+"</div>"+
         "</div>"+
         "<div class='col-md-8'>"+
             "<div class='infoSong'>"+
                 "<p class='name'>"+"Name  : "+varName[i]+"</classp>"+
                 "<p class='artist'>"+"Artist name  : "+varArtist[i]+"</p>"+
-                "<p class='duration'>"+"Duration  : "+varDuration[i]+"  Seg."+"</p>"+
+                "<p class='duration'>"+"Duration  : "+varDuration[i]/60+"  Seg."+"</p>"+
                 "<p class='playCounts'>"+"Play counts  : "+playorder[i]+"</p>"+
             "</div>"+
         "</div>"+
@@ -147,13 +148,13 @@ $(".songs").slideDown();
             "<p class='noSong'>"+(i+1)+"</p>"+
         "</div>"+
         "<div class='col-md-2'>"+
-            "<div class='images'>"+"<img src=\""+varImage[i]+"\" class='imgbig'>"+"</div>"+
+            "<div class='images'>"+"<img src=\""+varImage[i]+"\" class='imgbig'width= 100px>"+"</div>"+
         "</div>"+
         "<div class='col-md-8'>"+
             "<div class='infoSong'>"+
                 "<p class='name'>"+"Name  : "+varName[i]+"</classp>"+
                 "<p class='artist'>"+"Artist name  : "+varArtist[i]+"</p>"+
-                "<p class='duration'>"+"Duration  : "+varDuration[i]+"  Seg."+"</p>"+
+                "<p class='duration'>"+"Duration  : "+varDuration[i]/60+"  Seg."+"</p>"+
                 "<p class='playCounts'>"+"Play counts  : "+playorder[i]+"</p>"+
             "</div>"+
         "</div>"+
@@ -188,13 +189,13 @@ $(".songs").slideDown();
             "<p class='noSong'>"+(i+1)+"</p>"+
         "</div>"+
         "<div class='col-md-2'>"+
-            "<div class='images'>"+"<img src=\""+varImage[i]+"\" class='imgbig'>"+"</div>"+
+            "<div class='images'>"+"<img src=\""+varImage[i]+"\" class='imgbig' width= 100px>"+"</div>"+
         "</div>"+
         "<div class='col-md-8'>"+
             "<div class='infoSong'>"+
                 "<p class='name'>"+"Name  : "+varName[i]+"</classp>"+
                 "<p class='artist'>"+"Artist name  : "+varArtist[i]+"</p>"+
-                "<p class='duration'>"+"Duration  : "+durationOrder[i]+"  Seg."+"</p>"+
+                "<p class='duration'>"+"Duration  : "+durationOrder[i]/60+"  Seg."+"</p>"+
                 "<p class='playCounts'>"+"Play counts  : "+playorder[i]+"</p>"+
             "</div>"+
         "</div>"+
@@ -219,7 +220,7 @@ $(".ord").slideUp();
     $("#counts").removeClass("selecfiltr");
     $("#alpha").removeClass("selecfiltr");
     $(".oculto").removeClass("selecfiltr");
-    $("#top").removeClass("selecfiltr");
+    $("#Top").removeClass("selecfiltr");
     $("#counts2").removeClass("selecfiltr");
         varDuration.sort(orderPlayDesen);
         for (var s = 0; s <50; s++) {
@@ -233,13 +234,13 @@ $(".ord").slideUp();
             "<p class='noSong'>"+(i+1)+"</p>"+
         "</div>"+
         "<div class='col-md-2'>"+
-            "<div class='images'>"+"<img src=\""+varImage[i]+"\" class='imgbig'>"+"</div>"+
+            "<div class='images'>"+"<img src=\""+varImage[i]+"\" class='imgbig' width= 100px>"+"</div>"+
         "</div>"+
         "<div class='col-md-8'>"+
             "<div class='infoSong'>"+
                 "<p class='name'>"+"Name  : "+varName[i]+"</classp>"+
                 "<p class='artist'>"+"Artist name  : "+varArtist[i]+"</p>"+
-                "<p class='duration'>"+"Duration  : "+durationOrder[i]+"  Seg."+"</p>"+
+                "<p class='duration'>"+"Duration  : "+durationOrder[i]/60+"  Seg."+"</p>"+
                 "<p class='playCounts'>"+"Play counts  : "+playorder[i]+"</p>"+
             "</div>"+
         "</div>"+
@@ -279,13 +280,13 @@ $(".ord").slideUp();
             "<p class='noSong'>"+(i+1)+"</p>"+
         "</div>"+
         "<div class='col-md-2'>"+
-            "<div class='images'>"+"<img src=\""+varImage[i]+"\" class='imgbig'>"+"</div>"+
+            "<div class='images'>"+"<img src=\""+varImage[i]+"\" class='imgbig' width= 100px>"+"</div>"+
         "</div>"+
         "<div class='col-md-8'>"+
             "<div class='infoSong'>"+
                 "<p class='name'>"+"Name  : "+namOrder[i]+"</classp>"+
                 "<p class='artist'>"+"Artist name  : "+varArtist[i]+"</p>"+
-                "<p class='duration'>"+"Duration  : "+durationOrder[i]+"  Seg."+"</p>"+
+                "<p class='duration'>"+"Duration  : "+durationOrder[i]/60+"  Seg."+"</p>"+
                 "<p class='playCounts'>"+"Play counts  : "+playorder[i]+"</p>"+
             "</div>"+
         "</div>"+
@@ -321,13 +322,13 @@ $(".ord").slideUp();
             "<p class='noSong'>"+(i+1)+"</p>"+
         "</div>"+
         "<div class='col-md-2'>"+
-            "<div class='images'>"+"<img src=\""+varImage[i]+"\" class='imgbig'>"+"</div>"+
+            "<div class='images'>"+"<img src=\""+varImage[i]+"\" class='imgbig'width= 100px>"+"</div>"+
         "</div>"+
         "<div class='col-md-8'>"+
             "<div class='infoSong'>"+
                 "<p class='name'>"+"Name  : "+namOrder[i]+"</classp>"+
                 "<p class='artist'>"+"Artist name  : "+varArtist[i]+"</p>"+
-                "<p class='duration'>"+"Duration  : "+durationOrder[i]+"  Seg."+"</p>"+
+                "<p class='duration'>"+"Duration  : "+durationOrder[i]/60+"  Seg."+"</p>"+
                 "<p class='playCounts'>"+"Play counts  : "+playorder[i]+"</p>"+
             "</div>"+
         "</div>"+
@@ -360,13 +361,13 @@ $(".ord").slideUp();
             "<p class='noSong'>"+(i+1)+"</p>"+
         "</div>"+
         "<div class='col-md-2'>"+
-            "<div class='images'>"+"<img src=\""+varImage[i]+"\" class='imgbig'>"+"</div>"+
+            "<div class='images'>"+"<img src=\""+varImage[i]+"\" class='imgbig'width= 100px>"+"</div>"+
         "</div>"+
         "<div class='col-md-8'>"+
             "<div class='infoSong'>"+
                 "<p class='name'>"+"Name  : "+varName[i]+"</classp>"+
                 "<p class='artist'>"+"Artist name  : "+varArtist[i]+"</p>"+
-                "<p class='duration'>"+"Duration  : "+varDuration[i]+"  Seg."+"</p>"+
+                "<p class='duration'>"+"Duration  : "+varDuration[i]/60+"  Seg."+"</p>"+
                 "<p class='playCounts'>"+"Play counts  : "+playorder[i]+"</p>"+
             "</div>"+
         "</div>"+

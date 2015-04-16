@@ -19,14 +19,22 @@ body{
         text-align: center;
         max-height: 70%;
 }
+.imgCognits{
+    max-height: 80%;
+    max-width:80%;
+    margin-left: 12%;
+    max-width:150px;
+
+vertical-align: middle;
+}
  
 .titlePlay{
     font-size: 40px;
-    margin-left: 20%;
+text-align: center;
 }
 .subtitlePlay{
     font-size: 20px;
-    margin-left: 17%;
+text-align: center;
 }
 .span1{
     font-size: 30px;
@@ -62,7 +70,6 @@ body{
     font-family: 'Source Sans Pro', sans-serif;
     margin-top: 3%;
     text-align: center;
-    margin-left: 15%;
     cursor: pointer;
     border-bottom-style: solid; border-bottom-width: 2px;
     border-bottom-color: #ececec;
