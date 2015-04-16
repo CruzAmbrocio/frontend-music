@@ -49,6 +49,7 @@ jQuery(document).ready(function($) {
         playCounts.push(parsed_json["tracks"]["track"][i]["playcount"])
         playorder.push(parsed_json["tracks"]["track"][i]["playcount"])
         varDuration.push(parsed_json["tracks"]["track"][i]["duration"])
+        durationOrder.push(parsed_json["tracks"]["track"][i]["duration"])
         varName.push(parsed_json["tracks"]["track"][i]["name"])
         namOrder.push(parsed_json["tracks"]["track"][i]["name"])
         varArtist.push(parsed_json['tracks']['track'][i]['artist']['name'])
@@ -63,8 +64,8 @@ jQuery(document).ready(function($) {
         durationOrder.push(result)
         console.log(durationMins)
         console.log(result)
-        try {varImage.push(parsed_json["tracks"]["track"][i]["image"][2]["#text"])}
-        catch(err){varImage.push("images/undefined.jpg")}
+         try {varImage.push(parsed_json["tracks"]["track"][i]["image"][2]["#text"])}
+         catch(err){varImage.push("images/undefined.jpg")}
       $('.songs').append(
     "<div class='col-md-8 col-md-offset-1 ord'>"+
         "<hr/>"+
@@ -350,36 +351,36 @@ $(".ord").slideUp();
 });
 
  $("#Top").click(
-      function(event) {
-    event.preventDefault();
-$(".songs").slideDown();
-$(".ord").slideUp();
-        $("#Top").addClass("selecfiltr");
-        $("#time").removeClass("selecfiltr");
-        $("#alpha").removeClass("selecfiltr");
-        $(".oculto").removeClass("selecfiltr");
-        $("#counts").removeClass("selecfiltr");
-        $("#time2").removeClass("selecfiltr");
-        $("#counts2").removeClass("selecfiltr");
-    for (var i = 0; i <50; i++) {
-      $('.songs').append(
-    "<div class='col-md-8 col-md-offset-1 ord'>"+
-        "<hr/>"+
-        "<div class='col-md-2'>"+
-            "<p class='noSong'>"+(i+1)+"</p>"+
-        "</div>"+
-        "<div class='col-md-2'>"+
-            "<div class='images'>"+"<img src=\""+varImage[i]+"\" class='imgbig'width= 100px>"+"</div>"+
-        "</div>"+
-        "<div class='col-md-8'>"+
-            "<div class='infoSong'>"+
-                "<p class='name'>"+"Name  : "+varName[i]+"</classp>"+
-                "<p class='artist'>"+"Artist name  : "+varArtist[i]+"</p>"+
-                "<p class='duration'>"+"Duration  : "+durationMins[i]+"  Mins."+"</p>"+
-                "<p class='playCounts'>"+"Play counts  : "+playorder[i]+"</p>"+
-            "</div>"+
-        "</div>"+
-    "</div>"
-      );
-    }
-    });
+       function(event) {
+     event.preventDefault();
+ $(".songs").slideDown();
+ $(".ord").slideUp();
+         $("#Top").addClass("selecfiltr");
+         $("#time").removeClass("selecfiltr");
+         $("#alpha").removeClass("selecfiltr");
+         $(".oculto").removeClass("selecfiltr");
+         $("#counts").removeClass("selecfiltr");
+         $("#time2").removeClass("selecfiltr");
+         $("#counts2").removeClass("selecfiltr");
+     for (var i = 0; i <50; i++) {
+       $('.songs').append(
+     "<div class='col-md-8 col-md-offset-1 ord'>"+
+         "<hr/>"+
+         "<div class='col-md-2'>"+
+             "<p class='noSong'>"+(i+1)+"</p>"+
+         "</div>"+
+         "<div class='col-md-2'>"+
+             "<div class='images'>"+"<img src=\""+varImage[i]+"\" class='imgbig'>"+"</div>"+
+         "</div>"+
+         "<div class='col-md-8'>"+
+             "<div class='infoSong'>"+
+                 "<p class='name'>"+"Name  : "+varName[i]+"</classp>"+
+                 "<p class='artist'>"+"Artist name  : "+varArtist[i]+"</p>"+
+                 "<p class='duration'>"+"Duration  : "+varDuration[i]+"  Seg."+"</p>"+
+                 "<p class='playCounts'>"+"Play counts  : "+playorder[i]+"</p>"+
+             "</div>"+
+         "</div>"+
+     "</div>"
+       );
+     }
+     });
