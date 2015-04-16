@@ -7,7 +7,7 @@ var varDuration = [];
 var durationOrder=[];
 var varArtist = [];
 var varImage = [];
-var varurlImage=[];
+var durationMins=[];
 
  $(".bottons").hover(
       function() {
@@ -49,12 +49,20 @@ jQuery(document).ready(function($) {
         playCounts.push(parsed_json["tracks"]["track"][i]["playcount"])
         playorder.push(parsed_json["tracks"]["track"][i]["playcount"])
         varDuration.push(parsed_json["tracks"]["track"][i]["duration"])
-        durationOrder.push(parsed_json["tracks"]["track"][i]["duration"])
         varName.push(parsed_json["tracks"]["track"][i]["name"])
         namOrder.push(parsed_json["tracks"]["track"][i]["name"])
         varArtist.push(parsed_json['tracks']['track'][i]['artist']['name'])
-        varurlImage.push(parsed_json['tracks']['track'][i]['image'])
-        console.log('Esta es la imagen'+varurlImage)
+        var minutes = Math.floor(varDuration[i] / 60 );
+        var seconds = varDuration[i] % 60;
+        //Anteponiendo un 0 a los minutos si son menos de 10 
+        minutes = minutes < 10 ? '0' + minutes : minutes;
+        //Anteponiendo un 0 a los segundos si son menos de 10 
+        seconds = seconds < 10 ? '0' + seconds : seconds;
+        var result = minutes + ":" + seconds;  // 161:30
+        durationMins.push(result)
+        durationOrder.push(result)
+        console.log(durationMins)
+        console.log(result)
         try {varImage.push(parsed_json["tracks"]["track"][i]["image"][2]["#text"])}
         catch(err){varImage.push("images/undefined.jpg")}
       $('.songs').append(
@@ -70,7 +78,7 @@ jQuery(document).ready(function($) {
             "<div class='infoSong'>"+
                 "<p class='name'>"+"Name  : "+varName[i]+"</classp>"+
                 "<p class='artist'>"+"Artist name  : "+varArtist[i]+"</p>"+
-                "<p class='duration'>"+"Duration  : "+varDuration[i]/60+"  Seg."+"</p>"+
+                "<p class='duration'>"+"Duration  : "+durationMins[i]+"  Mins."+"</p>"+
                 "<p class='playCounts'>"+"Play counts  : "+playorder[i]+"</p>"+
             "</div>"+
         "</div>"+
@@ -113,7 +121,7 @@ $(".songs").slideDown();
             "<div class='infoSong'>"+
                 "<p class='name'>"+"Name  : "+varName[i]+"</classp>"+
                 "<p class='artist'>"+"Artist name  : "+varArtist[i]+"</p>"+
-                "<p class='duration'>"+"Duration  : "+varDuration[i]/60+"  Seg."+"</p>"+
+                "<p class='duration'>"+"Duration  : "+durationMins[i]+"  Mins."+"</p>"+
                 "<p class='playCounts'>"+"Play counts  : "+playorder[i]+"</p>"+
             "</div>"+
         "</div>"+
@@ -154,7 +162,7 @@ $(".songs").slideDown();
             "<div class='infoSong'>"+
                 "<p class='name'>"+"Name  : "+varName[i]+"</classp>"+
                 "<p class='artist'>"+"Artist name  : "+varArtist[i]+"</p>"+
-                "<p class='duration'>"+"Duration  : "+varDuration[i]/60+"  Seg."+"</p>"+
+                "<p class='duration'>"+"Duration  : "+durationMins[i]+"  Mins."+"</p>"+
                 "<p class='playCounts'>"+"Play counts  : "+playorder[i]+"</p>"+
             "</div>"+
         "</div>"+
@@ -177,11 +185,11 @@ $(".songs").slideDown();
         $(".oculto").removeClass("selecfiltr");
         $("#top").removeClass("selecfiltr");
         $("#counts2").removeClass("selecfiltr");
-        varDuration.sort(orderPlay);
+        durationMins.sort(orderPlay);
         for (var s = 0; s <50; s++) {
             for (var i = 0; i <50; i++) {
-        if (varDuration[s] === durationOrder[i]) {
-            console.log(varDuration)
+        if (durationMins[s] === durationOrder[i]) {
+            console.log(durationMins[i])
      $('.songs').append(
     "<div class='col-md-8 col-md-offset-1 ord'>"+
         "<hr/>"+
@@ -195,7 +203,7 @@ $(".songs").slideDown();
             "<div class='infoSong'>"+
                 "<p class='name'>"+"Name  : "+varName[i]+"</classp>"+
                 "<p class='artist'>"+"Artist name  : "+varArtist[i]+"</p>"+
-                "<p class='duration'>"+"Duration  : "+durationOrder[i]/60+"  Seg."+"</p>"+
+                "<p class='duration'>"+"Duration  : "+durationOrder[i]+"  Mins."+"</p>"+
                 "<p class='playCounts'>"+"Play counts  : "+playorder[i]+"</p>"+
             "</div>"+
         "</div>"+
@@ -222,11 +230,11 @@ $(".ord").slideUp();
     $(".oculto").removeClass("selecfiltr");
     $("#Top").removeClass("selecfiltr");
     $("#counts2").removeClass("selecfiltr");
-        varDuration.sort(orderPlayDesen);
+        durationMins.sort(orderPlayDesen);
         for (var s = 0; s <50; s++) {
             for (var i = 0; i <50; i++) {
-        if (varDuration[s] === durationOrder[i]) {
-            console.log(varDuration)
+        if (durationMins[s] === durationOrder[i]) {
+            console.log(durationMins)
      $('.songs').append(
     "<div class='col-md-8 col-md-offset-1 ord'>"+
         "<hr/>"+
@@ -240,7 +248,7 @@ $(".ord").slideUp();
             "<div class='infoSong'>"+
                 "<p class='name'>"+"Name  : "+varName[i]+"</classp>"+
                 "<p class='artist'>"+"Artist name  : "+varArtist[i]+"</p>"+
-                "<p class='duration'>"+"Duration  : "+durationOrder[i]/60+"  Seg."+"</p>"+
+                "<p class='duration'>"+"Duration  : "+durationOrder[i]+"  Mins."+"</p>"+
                 "<p class='playCounts'>"+"Play counts  : "+playorder[i]+"</p>"+
             "</div>"+
         "</div>"+
@@ -286,7 +294,7 @@ $(".ord").slideUp();
             "<div class='infoSong'>"+
                 "<p class='name'>"+"Name  : "+namOrder[i]+"</classp>"+
                 "<p class='artist'>"+"Artist name  : "+varArtist[i]+"</p>"+
-                "<p class='duration'>"+"Duration  : "+durationOrder[i]/60+"  Seg."+"</p>"+
+                "<p class='duration'>"+"Duration  : "+durationMins[i]+"  Mins."+"</p>"+
                 "<p class='playCounts'>"+"Play counts  : "+playorder[i]+"</p>"+
             "</div>"+
         "</div>"+
@@ -328,7 +336,7 @@ $(".ord").slideUp();
             "<div class='infoSong'>"+
                 "<p class='name'>"+"Name  : "+namOrder[i]+"</classp>"+
                 "<p class='artist'>"+"Artist name  : "+varArtist[i]+"</p>"+
-                "<p class='duration'>"+"Duration  : "+durationOrder[i]/60+"  Seg."+"</p>"+
+                "<p class='duration'>"+"Duration  : "+durationMins[i]+"  Mins."+"</p>"+
                 "<p class='playCounts'>"+"Play counts  : "+playorder[i]+"</p>"+
             "</div>"+
         "</div>"+
@@ -367,7 +375,7 @@ $(".ord").slideUp();
             "<div class='infoSong'>"+
                 "<p class='name'>"+"Name  : "+varName[i]+"</classp>"+
                 "<p class='artist'>"+"Artist name  : "+varArtist[i]+"</p>"+
-                "<p class='duration'>"+"Duration  : "+varDuration[i]/60+"  Seg."+"</p>"+
+                "<p class='duration'>"+"Duration  : "+durationMins[i]+"  Mins."+"</p>"+
                 "<p class='playCounts'>"+"Play counts  : "+playorder[i]+"</p>"+
             "</div>"+
         "</div>"+
@@ -375,7 +383,3 @@ $(".ord").slideUp();
       );
     }
     });
-
-
-
-
