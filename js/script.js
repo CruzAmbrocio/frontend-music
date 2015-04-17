@@ -15,30 +15,31 @@ var durationMins=[];
     },
       function() {
         $(this).removeClass("hover_button");
-    });
+    });// The Hover bootons of navegation
 
 function orderPlay(first, second){
     var first = first
     var second = second
         if (first<second) {return 1}else{return 0};
-};
+};// the function ordered playconts
 
 function orderPlayDesen (first, second) {
     var first = first
     var second = second
         if (first<second) {return 0}else{return 1};
-};
+};// the function orderd playconts
 
 function orderAlphabetic (a, b) {
     var A = a
     var B = b
         if (A < B){return -1;}else if (A > B){return 1;}else{return 0;}
-};
+};//the function ordered alphabetical A-Z
+
 function orderAlphabeticZA (a, b) {
     var A = a
     var B = b
         if (A > B){return -1;}else if (A < B){return 1;}else{return 0;}
-};
+};//the function ordered alphabetical Z-A
 
 jQuery(document).ready(function($) {
   $.ajax({
@@ -53,6 +54,8 @@ jQuery(document).ready(function($) {
         varName.push(parsed_json["tracks"]["track"][i]["name"])
         namOrder.push(parsed_json["tracks"]["track"][i]["name"])
         varArtist.push(parsed_json['tracks']['track'][i]['artist']['name'])
+
+        //the function convert the seconds to minuts
         var minutes = Math.floor(varDuration[i] / 60 );
         var seconds = varDuration[i] % 60;
         //Anteponiendo un 0 a los minutos si son menos de 10 
@@ -64,6 +67,7 @@ jQuery(document).ready(function($) {
         durationOrder.push(result)
         console.log(durationMins)
         console.log(result)
+
          try {varImage.push(parsed_json["tracks"]["track"][i]["image"][2]["#text"])}
          catch(err){varImage.push("images/undefined.jpg")}
       $('.songs').append(
@@ -132,7 +136,7 @@ $(".songs").slideDown();
             };
         };
     console.log("orden countplay decendente")
-});
+});//the booton of playcount
 
 $("#counts2").click(function(event){event.preventDefault();
 $(".songs").slideDown();
@@ -173,7 +177,7 @@ $(".songs").slideDown();
             };
         };
     console.log("orden countplay acendente")
-    });
+    });//the booton of playcounts
 
  $("#time").click(function(event) {event.preventDefault();
 $(".songs").slideDown();
@@ -376,7 +380,7 @@ $(".ord").slideUp();
              "<div class='infoSong'>"+
                  "<p class='name'>"+"Name  : "+varName[i]+"</classp>"+
                  "<p class='artist'>"+"Artist name  : "+varArtist[i]+"</p>"+
-                 "<p class='duration'>"+"Duration  : "+varDuration[i]+"  Seg."+"</p>"+
+                 "<p class='duration'>"+"Duration  : "+durationMins[i]+"  Mins."+"</p>"+
                  "<p class='playCounts'>"+"Play counts  : "+playorder[i]+"</p>"+
              "</div>"+
          "</div>"+
