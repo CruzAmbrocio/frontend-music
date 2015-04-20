@@ -46,7 +46,7 @@ jQuery(document).ready(function($) {
   url : "http://ws.audioscrobbler.com/2.0/?method=chart.gettoptracks&api_key=16d8b076f9808ebbd4b7908e74fe1154&format=json",
   dataType : "jsonp",
   success : function(parsed_json,variables) {
-    for (var i = 0; i <= 50; i++) {
+    for (var i = 0; i <50; i++) {
         playCounts.push(parsed_json["tracks"]["track"][i]["playcount"])
         playorder.push(parsed_json["tracks"]["track"][i]["playcount"])
         varDuration.push(parsed_json["tracks"]["track"][i]["duration"])
@@ -109,18 +109,18 @@ $(".songs").slideDown();
         $("#counts2").removeClass("selecfiltr");
         $("#time2").removeClass("selecfiltr");
         playCounts.sort(orderPlay);
-        for (var s = 0; s <50; s++) {
+        for (var s = 0; s <=50; s++) {
             for (var i = 0; i <50; i++) {
         if (playCounts[s] === playorder[i]) {
             console.log(playCounts)
-     $('.songs').append(
+      $('.songs').append(
     "<div class='col-md-8 col-md-offset-1 ord'>"+
         "<hr/>"+
         "<div class='col-md-2'>"+
             "<p class='noSong'>"+(i+1)+"</p>"+
         "</div>"+
         "<div class='col-md-2'>"+
-            "<div class='images'>"+"<img src=\""+varImage[i]+"\" class='imgbig'width= 100px>"+"</div>"+
+            "<div class='images'>"+"<img src=\""+varImage[i] +"\" class='imgbig'width= 100px>"+"</div>"+
         "</div>"+
         "<div class='col-md-8'>"+
             "<div class='infoSong'>"+
@@ -150,18 +150,18 @@ $(".songs").slideDown();
     $("#time2").removeClass("selecfiltr");
         $("#counts2").addClass("selecfiltr");
         playCounts.sort(orderPlayDesen);
-        for (var s = 0; s <50; s++) {
+        for (var s = 0; s <=50; s++) {
             for (var i = 0; i <50; i++) {
         if (playCounts[s] === playorder[i]) {
             console.log(playCounts)
-     $('.songs').append(
+      $('.songs').append(
     "<div class='col-md-8 col-md-offset-1 ord'>"+
         "<hr/>"+
         "<div class='col-md-2'>"+
             "<p class='noSong'>"+(i+1)+"</p>"+
         "</div>"+
         "<div class='col-md-2'>"+
-            "<div class='images'>"+"<img src=\""+varImage[i]+"\" class='imgbig'width= 100px>"+"</div>"+
+            "<div class='images'>"+"<img src=\""+varImage[i] +"\" class='imgbig'width= 100px>"+"</div>"+
         "</div>"+
         "<div class='col-md-8'>"+
             "<div class='infoSong'>"+
@@ -191,18 +191,18 @@ $(".songs").slideDown();
         $("#top").removeClass("selecfiltr");
         $("#counts2").removeClass("selecfiltr");
         durationMins.sort(orderPlay);
-        for (var s = 0; s <50; s++) {
+        for (var s = 0; s <=50; s++) {
             for (var i = 0; i <50; i++) {
         if (durationMins[s] === durationOrder[i]) {
             console.log(durationMins[i])
-     $('.songs').append(
+      $('.songs').append(
     "<div class='col-md-8 col-md-offset-1 ord'>"+
         "<hr/>"+
         "<div class='col-md-2'>"+
             "<p class='noSong'>"+(i+1)+"</p>"+
         "</div>"+
         "<div class='col-md-2'>"+
-            "<div class='images'>"+"<img src=\""+varImage[i]+"\" class='imgbig' width= 100px>"+"</div>"+
+            "<div class='images'>"+"<img src=\""+varImage[i] +"\" class='imgbig'width= 100px>"+"</div>"+
         "</div>"+
         "<div class='col-md-8'>"+
             "<div class='infoSong'>"+
@@ -236,18 +236,18 @@ $(".ord").slideUp();
     $("#Top").removeClass("selecfiltr");
     $("#counts2").removeClass("selecfiltr");
         durationMins.sort(orderPlayDesen);
-        for (var s = 0; s <50; s++) {
-            for (var i = 0; i <50; i++) {
+        for (var s = 0; s <=50; s++) {
+            for (var i = 0; i <=50; i++) {
         if (durationMins[s] === durationOrder[i]) {
             console.log(durationMins)
-     $('.songs').append(
+      $('.songs').append(
     "<div class='col-md-8 col-md-offset-1 ord'>"+
         "<hr/>"+
         "<div class='col-md-2'>"+
             "<p class='noSong'>"+(i+1)+"</p>"+
         "</div>"+
         "<div class='col-md-2'>"+
-            "<div class='images'>"+"<img src=\""+varImage[i]+"\" class='imgbig' width= 100px>"+"</div>"+
+            "<div class='images'>"+"<img src=\""+varImage[i] +"\" class='imgbig'width= 100px>"+"</div>"+
         "</div>"+
         "<div class='col-md-8'>"+
             "<div class='infoSong'>"+
@@ -282,8 +282,8 @@ $(".ord").slideUp();
         $("#counts2").removeClass("selecfiltr");
         $("#time2").removeClass("selecfiltr");
         varName.sort(orderAlphabetic);
-        for (var s = 0; s <50; s++) {
-            for (var i = 0; i <50; i++) {
+        for (var s = 0; s <=50; s++) {
+            for (var i = 0; i <=50; i++) {
         if (varName[s] === namOrder[i]) {
             console.log(varName)
      $('.songs').append(
@@ -324,8 +324,8 @@ $(".ord").slideUp();
     $("#counts2").removeClass("selecfiltr");
     $("#time2").removeClass("selecfiltr");
         varName.sort(orderAlphabeticZA);
-        for (var s = 0; s <50; s++) {
-            for (var i = 0; i <50; i++) {
+        for (var s = 0; s <=50; s++) {
+            for (var i = 0; i <=50; i++) {
         if (varName[s] === namOrder[i]) {
             console.log(varName)
      $('.songs').append(
